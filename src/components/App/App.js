@@ -16,22 +16,10 @@ function App() {
     [tasks]
   );
 
-  function showTasks() {
-    return tasks.map(function (item, index) {
-      return (
-        <li key={index}>
-          <input type="checkbox"></input>
-          <input className="butt-delete" type="button" value="удалить"></input>
-          {item.title}
-        </li>
-      );
-    });
-  }
-
   return (
     <>
       <TodoInput setTasks={setTasks} />
-      <TaskList showTasks={showTasks} />
+      <TaskList tasks={tasks} />
     </>
   );
 }
