@@ -21,7 +21,7 @@ function TodoInput({ setTasks }) {
     <input
       placeholder="Enter task name"
       type="text"
-      id="inp"
+      className="task-input"
       onKeyPress={handleKeyPress}
     />
   );
