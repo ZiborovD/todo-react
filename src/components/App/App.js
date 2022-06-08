@@ -16,10 +16,14 @@ function App() {
     [tasks]
   );
 
+  function deleteTask(itemId) {
+    setTasks((prevState) => prevState.filter((item) => item.id !== itemId));
+  }
+
   return (
     <>
       <TodoInput setTasks={setTasks} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} deleteTask={deleteTask} />
     </>
   );
 }
