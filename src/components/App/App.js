@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <TodoInput setTasks={setTasks} />
-      <TaskList tasks={tasks} />
+      <TaskList setTasks={setTasks} tasks={tasks} />
     </>
   );
 }

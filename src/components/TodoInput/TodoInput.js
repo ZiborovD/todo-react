@@ -6,7 +6,10 @@ function TodoInput({ setTasks }) {
   function handleKeyPress(event) {
     if (event.code === "Enter") {
       try {
-        setTasks((prevState) => [...prevState, { title, isDone: false }]);
+        setTasks((prevState) => [
+          ...prevState,
+          { title, isDone: false, id: prevState.length },
+        ]);
 
         event.target.value = "";
       } catch (error) {

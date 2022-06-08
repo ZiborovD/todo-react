@@ -1,16 +1,27 @@
 import React from "react";
 
-function TaskList({ tasks }) {
+function TaskList({ setTasks, tasks }) {
+  function deleteTask(itemId) {
+    setTasks((prevState) => prevState.filter((item) => item.id !== itemId));
+  }
+
   function showTasks() {
-    return tasks.map(function (item, index) {
-      return (
-        <li key={index}>
-          <input type="checkbox" checked={item.isDone}></input>
-          <input className="butt-delete" type="button" value="удалить"></input>
-          {item.title}
-        </li>
-      );
-    });
+    return tasks.map((item, index) => (
+      <li key={index}>
+        <input
+          type="checkbox"
+          onChange={() => {}}
+          checked={item.isDone}
+        ></input>
+        <input
+          className="butt-delete"
+          type="button"
+          value="удалить"
+          onClick={() => deleteTask(item.id)}
+        ></input>
+        {item.title}
+      </li>
+    ));
   }
 
   return <ul className="tasklist">{showTasks()}</ul>;
