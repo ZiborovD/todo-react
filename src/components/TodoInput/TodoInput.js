@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function TodoInput({ setTasks }) {
   const [title, setTitle] = useState("");
 
-  function handleKeyPress(event) {
+  function addTask(event) {
     if (event.code === "Enter") {
       try {
         setTasks((prevState) => [
@@ -25,7 +25,7 @@ function TodoInput({ setTasks }) {
       placeholder="Enter task name"
       type="text"
       className="task-input"
-      onKeyPress={handleKeyPress}
+      onKeyPress={addTask}
     />
   );
 }

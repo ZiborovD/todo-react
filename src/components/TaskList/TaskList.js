@@ -1,16 +1,17 @@
 import React from "react";
 
-function TaskList({ setTasks, tasks }) {
-  function deleteTask(itemId) {
-    setTasks((prevState) => prevState.filter((item) => item.id !== itemId));
-  }
+function TaskList({ tasks, deleteTask }) {
+  /*function changeStatus(isDone) {
+   setTasks((prevState) => (prevState[isDone] ? false : true));
+ }
+*/
 
   function showTasks() {
     return tasks.map((item, index) => (
       <li key={index}>
         <input
           type="checkbox"
-          onChange={() => {}}
+          //          onChange={() => changeStatus(item.isDone)}
           checked={item.isDone}
         ></input>
         <input
