@@ -4,14 +4,18 @@ function TodoInput({ setTasks }) {
   const [title, setTitle] = useState("");
 
   function addTask(event) {
+    setTasks((prevState) => [
+      ...prevState,
+      { title, isDone: false, id: prevState.length },
+    ]);
+
+    event.target.value = "";
+  }
+
+  function handleKeyPress(event) {
     if (event.code === "Enter") {
       try {
-        setTasks((prevState) => [
-          ...prevState,
-          { title, isDone: false, id: prevState.length },
-        ]);
-
-        event.target.value = "";
+        addTask(event);
       } catch (error) {
         console.log(error);
       }
@@ -25,7 +29,7 @@ function TodoInput({ setTasks }) {
       placeholder="Enter task name"
       type="text"
       className="task-input"
-      onKeyPress={addTask}
+      onKeyPress={handleKeyPress}
     />
   );
 }
